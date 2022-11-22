@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+    <TITLE>Online Electronic Store</TITLE>
+    <style>
+        body {background-color: Aqua;}
+        h1   {color: green;}
+        p    {color: red;}
+        table.gridtable {
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color:#333333;
+            border-width: 1px;
+            border-color: #666666;
+            border-collapse: collapse;
+        }
+        table.gridtable th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #dedede;
+        }
+        table.gridtable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #ffffff;
+        }
+
+    </style>
+
+</HEAD>
+<BODY>
+<CENTER>
+    <h1>Today's Offers</h1>
+    <BR/>
+    <BR/>
+    <h2>$products.size() Products are available for Sale today!</h2>
+    <BR/>
+    Welcome to our store for exiting prices
+    <BR/>
+    <BR/>
+    #set( $count = 1 )
+    <TABLE class="gridtable">
+        <TR>
+            <TH>Serial #</TH><TH>Product Name</TH><TH>Price</TH>
+        </TR>
+        #foreach( $product in $products )
+            <TR>
+                <TD>$count)</TD>
+                <TD>$product.getProductName()</TD>
+                <TD>$product.getProductPrice()</TD>
+            </TR>
+            #set( $count = $count + 1 )
+        #end
+    </TABLE>
+    <BR/>
+</CENTER>
+
+</BODY>
+</HTML>
